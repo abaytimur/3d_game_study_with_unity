@@ -8,14 +8,21 @@ public class Dusman : MonoBehaviour
     AudioSource au;
     public Animator anim;
     public float dusmanIlerlemeHizi;
+    bool olu;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (olu)
+        {
+            return;
+        }
+
         SetKinematic(true);
         au = GetComponent<AudioSource>();
         gameObject.tag = "Dusman";
         oyuncuYeri = GameObject.Find("Duz_adam").transform;
-
+        olu = false;
     }
 
     void SetKinematic(bool newValue)
@@ -33,8 +40,9 @@ public class Dusman : MonoBehaviour
         GetComponent<Animator>().enabled = false;
         au.Play();
         SetKinematic(false);
-        dusmanIlerlemeHizi = 0.002f;
-        Destroy(gameObject, 5);
+        dusmanIlerlemeHizi = 0f;
+        olu = true;
+        Destroy(gameObject, 15);
 
         /*
             other.gameObject.SetActive(false);

@@ -19,7 +19,7 @@ public class Yumruk : MonoBehaviour
         if (other.gameObject.CompareTag("Parca"))
         {
             other.gameObject.GetComponentInParent<Dusman>().Die();
-            other.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * vurusGucu) ;
+            other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * vurusGucu) ;
 
         }
 
